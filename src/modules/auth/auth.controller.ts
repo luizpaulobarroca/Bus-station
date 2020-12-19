@@ -8,8 +8,8 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
-import { UsersService } from 'src/users/users.service';
-import { CreateUserDto } from 'src/users/users.dto';
+import { UsersService } from 'src/modules/users/users.service';
+import { CreateUserDto } from 'src/modules/users/users.dto';
 import { LoginUserDto } from './login.dto';
 import { AuthGuard } from '@nestjs/passport';
 

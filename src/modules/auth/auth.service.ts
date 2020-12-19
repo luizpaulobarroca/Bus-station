@@ -1,12 +1,12 @@
 import * as jwt from 'jsonwebtoken';
 import { Injectable, Logger } from '@nestjs/common';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'src/modules/users/users.service';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
-import { User } from 'src/users/user.entity';
-import { UserRO } from 'src/users/users.ro';
+import { User } from 'src/modules/users/user.entity';
+import { UserRO } from 'src/modules/users/users.ro';
 import { debug } from 'console';
 import { RegistrationStatus } from './interfaces/registration-status.interface';
-import { CreateUserDto } from 'src/users/users.dto';
+import { CreateUserDto } from 'src/modules/users/users.dto';
 import 'dotenv/config';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class AuthService {
     try {
       await this.usersService.register(user);
     } catch (err) {
-      //debug(err);
+      debug(err);
       status = { success: false, message: err };
     }
     return status;

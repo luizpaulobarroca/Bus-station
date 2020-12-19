@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { UserRO } from './users.ro';
+import {IsEmail, IsNotEmpty} from "class-validator";
 
 @Entity()
 export class User {
@@ -17,18 +18,25 @@ export class User {
   id: number;
 
   @Column()
+  @IsNotEmpty()
   name: string;
 
   @Column()
+  @IsNotEmpty()
   city: string;
 
   @Column()
+  @IsNotEmpty()
   state: string;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
+  @IsEmail()
   email: string;
 
   @Column()
+  @IsNotEmpty()
   password: string;
 
   @BeforeInsert()
