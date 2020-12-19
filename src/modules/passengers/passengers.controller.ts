@@ -6,11 +6,12 @@ import {
   Response, UseGuards,
 } from '@nestjs/common';
 import { PassengersService } from './passengers.service';
-import { Passenger } from './passengers.entity';
-import {AuthGuard} from "@nestjs/passport";
+import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('passengers')
+@ApiTags('passengers')
 export class PassengersController {
   constructor(private readonly passengersService: PassengersService) {}
 

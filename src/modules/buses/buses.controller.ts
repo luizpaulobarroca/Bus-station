@@ -14,9 +14,11 @@ import { AuthGuard } from '@nestjs/passport';
 import { BusesService } from './buses.service';
 import { CreateBusDto } from './buses.dto';
 import { CreatePassengerDto } from '../passengers/passengers.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('buses')
+@ApiTags('buses')
 export class BusesController {
   constructor(private readonly busesService: BusesService) {}
 
