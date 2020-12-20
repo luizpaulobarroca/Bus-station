@@ -2,7 +2,7 @@ console.log(__dirname);
 function getMigrationDirectory() {
   const directory =
     process.env.NODE_ENV === 'migration' ? 'src' : `${__dirname}`;
-  return `${directory}/dist/migrations/**/*{.ts,.js}`;
+  return `${directory}/dist/migrations/**/*.js`;
 }
 
 module.exports = {
