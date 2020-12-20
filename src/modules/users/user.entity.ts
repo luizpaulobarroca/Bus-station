@@ -39,6 +39,9 @@ export class User {
   @IsNotEmpty()
   password: string;
 
+  @Column({ default: '' })
+  photo: string;
+
   @BeforeInsert()
   async hashPassword() {
     this.password = await bcrypt.hash(this.password, 10);

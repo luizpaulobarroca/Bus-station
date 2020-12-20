@@ -1,6 +1,6 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DeleteResult } from 'typeorm';
+import {Repository, DeleteResult, UpdateResult} from 'typeorm';
 import { User } from './user.entity';
 import { CreateUserDto } from './users.dto';
 @Injectable()
@@ -51,5 +51,9 @@ export class UsersService {
     }
     user = await this.userRepository.create(userDto);
     return await this.userRepository.save(user);
+  }
+
+  public async setPhoto(userId: number, photoUrl: string): Promise<UpdateResult> {
+    return await this.userRepository.update(userId, { photo: photoUrl });
   }
 }
