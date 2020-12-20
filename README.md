@@ -1,6 +1,11 @@
 ## Descrição
 Código do servidor back-end feito em node utilizando nest, typeorm e postgres.
 
+## Heroku
+https://w2bitchallenge.herokuapp.com/
+
+## Insomnia
+[Insomnia.json](https://gist.github.com/luizpaulobarroca/3cefcee1eb60f7982629ddb0f0825e03)
 ## Configuração
 
  - Edite o arquivo `.env` com os dados de conexão do banco de dados seguindo o exemplo:
@@ -43,3 +48,4 @@ $ npm run start:prod
 
 ## Swagger
  - O Swagger está configurado na rota `/documentation`
+ - Ou acesse [aqui](https://w2bitchallenge.herokuapp.com/documentation)
