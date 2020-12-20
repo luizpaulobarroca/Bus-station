@@ -1,7 +1,10 @@
-import { ConnectionOptions } from 'typeorm';
-import 'dotenv/config';
+function getMigrationDirectory() {
+  const directory =
+    process.env.NODE_ENV === 'migration' ? 'src' : `${__dirname}`;
+  return `${directory}/migrations/**/*{.ts,.js}`;
+}
 
-const connectionOptions: ConnectionOptions = {
+module.exports = {
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
   port: Number(process.env.POSTGRES_PORT),
@@ -17,11 +20,3 @@ const connectionOptions: ConnectionOptions = {
     migrationsDir: 'migrations',
   },
 };
-
-function getMigrationDirectory() {
-  const directory =
-    process.env.NODE_ENV === 'migration' ? 'src' : `${__dirname}`;
-  return `${directory}/migrations/**/*{.ts,.js}`;
-}
-
-export = connectionOptions;
