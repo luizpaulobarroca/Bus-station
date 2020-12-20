@@ -15,7 +15,7 @@ async function bootstrap() {
     .addTag('Back end')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('doc', app, document);
+  SwaggerModule.setup('documentation', app, document);
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(port);
 }
